@@ -9,7 +9,6 @@ def start_rescue():
     global current_section, description, priorityRescue, score 
     current_section = "Rescue Operations"
     description = "Provide immediate aid to survivors"
-    print(description)
     print("Choose wisely, you only get one choice for Myrina!")
     priorityRescue = input("Will you ike prioritize rescuing doctors, engineers, scientists or normal civillians? ")
     if priorityRescue == "doctors":
@@ -29,8 +28,6 @@ def start_rebuilding():
     global current_section, description, priorityRescue, score 
     current_section = "Rebuilding Infrastructure"
     description = "Restore vital systems like shelter and power"
-    print(description)
-    print("Choose wisely, you only get one choice for Myrina!")
     priorityBuild = input("What will you prioritize building first? Power facilities, Hospitals, Labs")
     if priorityBuild == "power facilities":
         if priorityRescue == "engineers":
@@ -60,22 +57,15 @@ def start_resources():
     global current_section, description, priorityRescue, score 
     current_section = "Resource Management"
     description = "Distribute food, water, and medical supplies"
-    print(description)
     print("Now that you have made your choices, lead your team and civillians to distribute food and water!")
     score = score + 500
 
-def winORlose():
-    if score >= 1500:
-        print("Thanks to you as a leader, you gained enough points and Myrina is healing!!!")
-    else: 
-        print("You didn't acquire enough points, Myrina will need more asistence...")
-    
 def draw(canvas):
     canvas.draw_text("Current Focus: " + current_section, (10, 100), 24, "White")
     canvas.draw_text(description, (10, 150), 18, "White")
     canvas.draw_polygon([(0, 200), (400,200), (400,400), (0, 400)], 2, "#F6FB8E", "#F6FB8E")
     canvas.draw_text("Score: " + str(score), (300, 20), 20, "White")
-
+ 
 frame = simplegui.create_frame("Myrina Rescue Mission", 400, 400)
 
 frame.add_button("Start Rescue Operations", start_rescue, 200)

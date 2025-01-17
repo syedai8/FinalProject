@@ -64,7 +64,11 @@ def start_resources():
     print("Now that you have made your choices, lead your team and civillians to distribute food and water!")
     score = score + 500
 
-    
+def winORlose():
+    if score >= 1500:
+        print("Thanks to you as a leader, you gained enough points and Myrina is healing!!!")
+    else: 
+        print("You didn't acquire enough points, Myrina will need more asistence...")
     
 def draw(canvas):
     canvas.draw_text("Current Focus: " + current_section, (10, 100), 24, "White")
